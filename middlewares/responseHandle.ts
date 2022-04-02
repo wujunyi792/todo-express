@@ -1,5 +1,5 @@
-import errorCode from '../routes/error'
-import {Response} from '../routes/router'
+import errorCode from './error'
+import {Response} from './router'
 
 export const responseHandle =  (req, res: Response, next) => {
     res.jsonSuccess = (data?): void => {

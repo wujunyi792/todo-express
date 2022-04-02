@@ -1,5 +1,5 @@
-import {Response} from "./routes/router";
-import errorCode from "./routes/error";
+import {Response} from "./middlewares/router";
+import errorCode from "./middlewares/error";
 
 const express = require('express');
 // const path = require('path');
@@ -8,7 +8,10 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const todoRouter = require('./routes/todo');
+
 import {responseHandle} from "./middlewares/responseHandle";
+import {jwtVerifyHandle} from "./middlewares/jwtVerify";
 
 export const app = express();
 
@@ -22,4 +25,8 @@ app.use(responseHandle)
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+app.use(jwtVerifyHandle)
+
+app.use('/todo', todoRouter)
 

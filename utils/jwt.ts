@@ -20,11 +20,12 @@ export function Encode(model: JwtModel): string {
     )
 }
 
-export function Valide(token: string): JwtModel | undefined {
+export function ValideToken(token: string): JwtModel | undefined {
     let data
     try {
-        data = verify(token, secret, {algorithms: ['RS256']})
+        data = verify(token, secret, {algorithms: ['HS256']})
     } catch (e) {
+        console.log(e)
         return undefined
     }
 
