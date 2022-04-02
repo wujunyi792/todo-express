@@ -7,3 +7,10 @@ export interface registerRequest extends Request {
     phone: string;
   };
 }
+
+export interface loginRequest extends Request {
+  body: {
+    info: string;
+    password: string;
+  };
+}

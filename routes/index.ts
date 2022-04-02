@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
 
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 
 router.get("/", function (req: Request, res: Response, next) {
-  console.log(req.headers);
+  // console.log(req.headers);
 
-  res.json({
+  res.jsonSuccess({
     host: req.headers.host,
     UA: req.headers["user-agent"],
   });
